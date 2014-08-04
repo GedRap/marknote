@@ -1,0 +1,6 @@
+{
+  "name": "MarkNote",
+  "dependencies": {
+    "bootstrap": "latest"
+  }
+}
