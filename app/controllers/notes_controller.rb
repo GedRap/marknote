@@ -10,6 +10,10 @@ class NotesController < ApplicationController
 
 	def show
 		@note = Note.find params[:id]
+
+		@note.views = @note.views + 1
+		@note.save
+
 		@note.html = @note.html.html_safe
 	end
 end
