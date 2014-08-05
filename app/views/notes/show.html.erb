@@ -3,6 +3,7 @@
 		<h3><%= @note.title %></h3>
 		<p><i>Created at <%= @note.created_at %></i></p>
 		<p>Viewed <%= @note.views %> times</p>
+		<p><a href="/note/delete/<%= @note.id%>" class="btn btn-default">Delete</a></p>
 		<p><%= @note.html %></p>
 	</div>
 </div>

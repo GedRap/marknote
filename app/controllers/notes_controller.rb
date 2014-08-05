@@ -14,6 +14,17 @@ class NotesController < ApplicationController
 		@note.views = @note.views + 1
 		@note.save
 
-		@note.html = @note.html.html_safe
+		if @note.html != nil
+			@note.html = @note.html.html_safe
+		end
+	end
+
+	def delete
+		if Note.exists?(:id => params[:id])
+			@note = Note.find params[:id]
+			@note.destroy
+		end
+
+		redirect_to :home_index
 	end
 end
