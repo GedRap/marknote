@@ -1,9 +1,21 @@
 <div class="row">
 	<div class="col-md-12">
 		<h3><%= @note.title %></h3>
-		<p><i>Created at <%= @note.created_at %></i></p>
-		<p>Viewed <%= @note.views %> times</p>
-		<p><a href="/note/delete/<%= @note.id%>" class="btn btn-default">Delete</a></p>
-		<p><%= @note.html %></p>
+	</div>
+	<div class="col-md-8">
+		<div class="row">
+			<div class="col-md-12">
+				<a href="/note/delete/<%= @note.id%>" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Delete Note">
+					<span class="glyphicon glyphicon-trash"></span>
+				</a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 note-content"><%= @note.html %></div>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="alert alert-info">Created at <%= @note.created_at %></div>
+		<div class="alert alert-info">Viewed <%= @note.views %> times</div>
 	</div>
 </div>
