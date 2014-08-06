@@ -27,4 +27,26 @@ class NotesController < ApplicationController
 
 		redirect_to :home_index
 	end
+
+	def edit
+		if not Note.exists?(:id => params[:id])
+			redirect_to :home_index
+		end
+
+		@note = Note.find params[:id]
+	end
+
+	def save
+		if not Note.exists?(:id => params[:id])
+			redirect_to :home_index
+		end
+
+		@note = Note.find params[:id]
+		@note.title = params[:title]
+		@note.source = params[:source]
+		@note.html = Note.process_markdown(@note.source).html_safe
+		@note.save
+
+		redirect_to @note
+	end
 end

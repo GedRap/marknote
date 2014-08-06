@@ -2,9 +2,12 @@ Marknote::Application.routes.draw do
   root :to => 'home#index'
 
   get "home/index"
-  get '/note/:id', to: 'notes#show', as: 'note'
 
   resources :notes
+
+  match "/note/delete/:id" => "notes#delete"
+  match "/note/edit/:id" => "notes#edit"
+  match "/note/save/:id" => "notes#save"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
