@@ -5,6 +5,7 @@ Marknote::Application.routes.draw do
 
   resources :notes
 
+  match "/browse/notes" => "notes#all"
   match "/note/delete/:id" => "notes#delete"
   match "/note/edit/:id" => "notes#edit"
   match "/note/save/:id" => "notes#save"

@@ -29,8 +29,6 @@ class Note < ActiveRecord::Base
 		note.views = 0
 		note.public = true
 
-		#note.save()
-
 		return note
 	end
 

@@ -20,10 +20,10 @@
 		
 	</div>
 	<div class="col-md-4">
-		<h4>Recent Notes</h4>
+		<h4>Recent Notes <a href="/browse/notes">(view all)</a></h4>
 		<ul class="notes-list">
 		<% @notes.each do |note| %>
-			<li><a href="/notes/<%= note.id %>"><%= note.title %></a><p class="timestamp"><%= note.created_at %></p></li>
+			<li><a href="/notes/<%= note.id %>"><%= note.title %></a><p class="timestamp"><%= note.created_at %>, Views: <%= note.views %></p></li>
 		<% end %>
 		</ul>
 		
