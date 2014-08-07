@@ -9,12 +9,19 @@ class NotesController < ApplicationController
 		@note.url = Note.generate_url()
 		@note.html = Note.process_markdown(@note.source).html_safe
 		@note.save
+
+		tag_names = params[:tags].split(/,( )?/)
+		tag_names.reject! { |c| (c == " " or c.empty?) }
+
+		@note.associate_with_tags(tag_names)
+		@note.save
 		
 		redirect_to @note
 	end
 
 	def show
 		@note = Note.find params[:id]
+		@note_tags = @note.tags(:force_reload => true)
 
 		@note.views = @note.views + 1
 		@note.save

@@ -1,7 +1,7 @@
 require 'redcarpet'
 
 class Note < ActiveRecord::Base
-	has_many :tags, :through => :tags_notes
+	has_and_belongs_to_many :tags, :join_table => :tags_notes
 
 	def self.generate_url(length=7)
 		url = rand(36**length).to_s(36)
@@ -34,5 +34,13 @@ class Note < ActiveRecord::Base
 
 	def self.get_recent(notes=10)
 		return Note.find(:all, :order => "id desc", :limit => notes)
+	end
+
+	def associate_with_tags(tags_names)
+		self.tags.clear
+		tags_names.each do |tag_name|
+			tag = Tag.get_by_name(tag_name)
+			self.tags << tag
+		end
 	end
 end
