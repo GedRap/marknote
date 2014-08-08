@@ -43,4 +43,13 @@ class Note < ActiveRecord::Base
 			self.tags << tag
 		end
 	end
+
+	def get_tags_names()
+		tags_names = []
+		self.tags.each do |tag|
+			tags_names << tag.name
+		end
+
+		return tags_names
+	end
 end

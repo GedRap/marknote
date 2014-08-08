@@ -46,6 +46,9 @@ class NotesController < ApplicationController
 		end
 
 		@note = Note.find params[:id]
+		tags_names = @note.get_tags_names
+
+		@tags_joined = tags_names.join(", ")
 	end
 
 	def save
@@ -57,6 +60,12 @@ class NotesController < ApplicationController
 		@note.title = params[:title]
 		@note.source = params[:source]
 		@note.html = Note.process_markdown(@note.source).html_safe
+		@note.save
+
+		tag_names = params[:tags].split(/,( )?/)
+		tag_names.reject! { |c| (c == " " or c.empty?) }
+
+		@note.associate_with_tags(tag_names)
 		@note.save
 
 		redirect_to @note
