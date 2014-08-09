@@ -11,7 +11,9 @@ Marknote::Application.routes.draw do
   match "/note/delete/:id" => "notes#delete"
   match "/note/edit/:id" => "notes#edit"
   match "/note/save/:id" => "notes#save"
+
   match "/tag/:id/notes" => "tags#notes"
+  match "/tags/all" => "tags#all"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
