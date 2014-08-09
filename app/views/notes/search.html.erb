@@ -1,0 +1,10 @@
+<div class="row">
+	<div class="col-md-12">
+		<h3><%= @notes.length %> Search results for &quot;<%= @query %>&quot;</h3>
+	</div>
+	<div class="col-md-12">
+		<% @notes.each do |note| %>
+			<h4><a href="/notes/<%= note.id %>"><%= note.title %></a></h4>
+		<% end %>
+	</div>
+</div>

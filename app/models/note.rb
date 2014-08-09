@@ -22,6 +22,10 @@ class Note < ActiveRecord::Base
 		return markdown.render(source)
 	end
 
+	def self.search(query)
+		return Note.where("to_tsvector('english', title || ' ' || source) @@ to_tsquery('english', '#{query}')").all
+	end
+
 	def self.create_public_note(title, source)
 		note = Note.new
 		note.title = title

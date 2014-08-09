@@ -4,6 +4,11 @@ class NotesController < ApplicationController
 		@notes = Note.all
 	end
 
+	def search
+		@notes = Note.search(params[:query])
+		@query = params[:query]
+	end
+
 	def create
 		@note = Note.create_public_note(params[:title], params[:source])
 		@note.url = Note.generate_url()
