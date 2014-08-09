@@ -1,6 +1,11 @@
 class Tag < ActiveRecord::Base
 	has_and_belongs_to_many :notes, :join_table => :tags_notes
 
+	# Returns tags which have at least one note
+	def self.get_tags_which_have_notes()
+		return Tag.where("EXISTS(SELECT 1 FROM tags_notes WHERE tags.id = tags_notes.tag_id)").all
+	end
+
 	def self.get_by_name(name)
 		if Tag.exists?(:name => name)
 			return Tag.where(:name => name).first

@@ -23,12 +23,24 @@
 		
 	</div>
 	<div class="col-md-4">
-		<h4>Recent Notes <a href="/browse/notes">(view all)</a></h4>
-		<ul class="notes-list">
-		<% @notes.each do |note| %>
-			<li><a href="/notes/<%= note.id %>"><%= note.title %></a><p class="timestamp"><%= note.created_at %>, Views: <%= note.views %></p></li>
-		<% end %>
-		</ul>
+		<div class="row">
+			<div class="col-md-12">
+				<h4>Recent Notes <a href="/browse/notes">(view all)</a></h4>
+				<ul class="notes-list">
+				<% @notes.each do |note| %>
+					<li><a href="/notes/<%= note.id %>"><%= note.title %></a><p class="timestamp"><%= note.created_at %>, Views: <%= note.views %></p></li>
+				<% end %>
+				</ul>
+			</div>
+			<div class="col-md-12">
+				<h4>Tags With Notes</h4>
+				<ul class="notes-list">
+					<% @tags.each do |tag| %>
+						<li><a href="/tag/<%= tag.id %>/notes"><%= tag.name %></a></li>
+					<% end %>
+				</ul>
+			</div>
+		</div>
 		
 	</div>
 </div>
