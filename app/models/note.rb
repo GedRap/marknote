@@ -23,7 +23,9 @@ class Note < ActiveRecord::Base
 	end
 
 	def self.search(query)
-		return Note.where("to_tsvector('english', title || ' ' || source) @@ to_tsquery('english', '#{query}')").all
+		tokens_list = query.split(/ /)
+		tokens = tokens_list.join(" & ")
+		return Note.where("to_tsvector('english', title || ' ' || source) @@ to_tsquery('english', '#{tokens}')").all
 	end
 
 	def self.create_public_note(title, source)
