@@ -1,6 +1,16 @@
 <div class="row">
+	<% if @tags.length %>
+		<div class="col-md-12">
+			<h3><%= @tags.length %> tags found</h3>
+		</div>
+		<div class="col-md-12">
+			<% @tags.each do |tag| %>
+				<h4><a href="/tag/<%= tag.id %>/notes"><%= tag.name %></a></h4>
+			<% end %>
+		</div>
+	<% end %>
 	<div class="col-md-12">
-		<h3><%= @notes.length %> Search results for &quot;<%= @query %>&quot;</h3>
+		<h3><%= @notes.length %> matching notes for &quot;<%= @query %>&quot;</h3>
 	</div>
 	<div class="col-md-12">
 		<% @notes.each do |note| %>

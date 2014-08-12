@@ -6,6 +6,7 @@ class NotesController < ApplicationController
 
 	def search
 		@notes = Note.search(params[:query])
+		@tags = Tag.search(params[:query])
 		@query = params[:query]
 	end
 
