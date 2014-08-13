@@ -19,3 +19,9 @@ Feature: I can create a note from a homepage
         When I visit Tags
         Then I should see "tag1"
         Then I should see "tag2"
+
+    Scenario: Search for the note
+        When I visit the homepage
+        Then I type in "Foo" in "query"
+        When I click on "Submit"
+        Then I should see "Foo"
