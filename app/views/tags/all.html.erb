@@ -2,7 +2,7 @@
 	<div class="col-md-12">
 		<h2>Tags Which Have Notes</h2>
 		<% @tags.each do |tag| %>
-			<h4><a href="/tag/<%= tag.id %>/notes"><%= tag.name %></a></h4>
+			<h4><a href="/tag/<%= tag.id %>/notes"><%= tag.name %></a> (<%= tag.notes.length %> notes)</h4>
 		<% end %>
 	</div>
 </div>
