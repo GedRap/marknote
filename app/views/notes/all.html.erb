@@ -1,29 +1,11 @@
 <div class="row">
 	<div class="col-md-12">
-		<h3>Browse Notes</h3>
+		<h3>Browse Notes</h3> 
 	</div>
 	<div class="col-md-12">
 		<div class="row">
 		<% @notes.each do |note| %>
-			<div class="col-md-4">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h3 class="panel-title">
-							<a href="/notes/<%= note.id %>"><%= note.title %></a>
-						</h3>
-					</div>
-					<div class="panel-body">
-						<% if note.tags.length > 0 %>
-							<p>Tagged under
-								<% note.tags.each do |tag| %>
-									<%= tag.name %>
-								<% end %>
-							</p>
-						<% end %>
-						<p class="timestamp"><%= note.created_at %>, Views: <%= note.views %></p>
-					</div>
-				</div>
-			</div>			
+			<%= render_note_widget(note) %>
 		<% end %>
 		</div>
 	</div>

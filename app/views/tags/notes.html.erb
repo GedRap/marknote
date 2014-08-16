@@ -3,8 +3,10 @@
 		<h3>Notes under <%= @tag.name %></h3>
 	</div>
 	<div class="col-md-12">
+		<div class="row">
 		<% @notes.each do |note| %>
-			<p><a href="/notes/<%= note.id %>"><%= note.title %></a></p>
+			<%= render_note_widget(note) %>
 		<% end %>
+		</div>
 	</div>
 </div>
