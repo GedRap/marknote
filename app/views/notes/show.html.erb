@@ -5,10 +5,10 @@
 	<div class="col-md-8">
 		<div class="row">
 			<div class="col-md-12">
-				<a href="/note/delete/<%= @note.id%>" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Delete Note">
+				<a id="delete" href="/note/delete/<%= @note.id%>" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Delete Note">
 					<span class="glyphicon glyphicon-trash"></span>
 				</a>
-				<a href="/note/edit/<%= @note.id%>" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Edit Note">
+				<a id="edit" href="/note/edit/<%= @note.id%>" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Edit Note">
 					<span class="glyphicon glyphicon-edit"></span>
 				</a>
 			</div>
