@@ -58,4 +58,8 @@ class Note < ActiveRecord::Base
 
 		return tags_names
 	end
+
+	def self.get_by_url(url)
+		return Note.where(:url => url).first
+	end
 end

@@ -37,6 +37,13 @@ class NotesController < ApplicationController
 		end
 	end
 
+	def shortcut
+		@url_id = params[:id]
+		@note = Note.get_by_url(@url_id)
+
+		redirect_to @note
+	end
+
 	def delete
 		if Note.exists?(:id => params[:id])
 			@note = Note.find params[:id]
