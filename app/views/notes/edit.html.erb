@@ -7,12 +7,19 @@
 			<div class="col-md-12">
 				<%= form_tag("/note/save/#{@note.id}", method: "post") do %>
 					<div class="form-group">
+						<label>Title</label>
 						<%= text_field_tag(:title, "", class: "form-control", placeholder: "Name (optional)", :value => @note.title) %>
 					</div>
 					<div class="form-group">
+						<label>Comma separated tags</label>
 						<%= text_field_tag(:tags, "", class: "form-control", placeholder: "", :value => @tags_joined) %>
 					</div>
 					<div class="form-group">
+						<label>Permalink (url)</label>
+						<%= text_field_tag(:url, "", class: "form-control", placeholder: "", :value => @note.url) %>
+					</div>
+					<div class="form-group">
+						<label>Content</label>
 						<%= text_area_tag(:source, @note.source, class: "col-md-12", rows: 10, placeholder: "Markdown") %>
 					</div>
 					<div class="pull-right margin-top-15">

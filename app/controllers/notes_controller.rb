@@ -72,6 +72,8 @@ class NotesController < ApplicationController
 		@note = Note.find params[:id]
 		@note.title = params[:title]
 		@note.source = params[:source]
+		@note.url = params[:url]
+
 		@note.html = Note.process_markdown(@note.source).html_safe
 		@note.save
 
