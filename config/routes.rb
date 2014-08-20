@@ -12,6 +12,7 @@ Marknote::Application.routes.draw do
   match "/note/edit/:id" => "notes#edit"
   match "/note/save/:id" => "notes#save"
   match "/notes/search" => "notes#search"
+  match "/n/:id" => "notes#shortcut"
 
   match "/tag/:id/notes" => "tags#notes"
   match "/tags/all" => "tags#all"
